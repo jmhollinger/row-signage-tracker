@@ -9,3 +9,9 @@ font-family: Montserrat; Helvetica, san-serif;
 #map-canvas { 
     height: 250px;
 }
+
+.btn-responsive {
+  white-space: normal;
+  width: 100%;
+  margin-bottom: 15px;    
+}
