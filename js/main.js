@@ -1,10 +1,24 @@
-var formattedDate = moment().format('MMMM Do YYYY, h:mm:ss a')
+//Date & Time Picker
+$(function () {
+                $('#datetimepicker1').datetimepicker({
+                    defaultDate: moment()
+                })
+              });
 
-var timestamp = moment().format()
+//Inspector URL Parameter
+function getUrlParameter(sParam){
+var sPageURL = window.location.search.substring(1);
+var sURLVariables = sPageURL.split('&');
+for (var i = 0; i < sURLVariables.length; i++) 
+{
+var sParameterName = sURLVariables[i].split('=');
+if (sParameterName[0] == sParam) 
+   {return sParameterName[1];}}}
 
-$("#timestamp").val(formattedDate)
+$("#inspector").val(decodeURIComponent(getUrlParameter('inspector')))
 
 
+//Map
 function initMap(){
 
   //Go ahead and create an empty marker set for address searching.

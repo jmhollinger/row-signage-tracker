@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/custom.css">
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -28,61 +28,30 @@
   <body>
   <div class="container-fluid">
    <h3>Signage Report</h3>  
-<form>
-  <div class="form-group">
+  <div>
   <label>Inspector</label>
-  <select class="form-control">
-    <option>Bruce Willis</option>
-    <option>Charles Reed</option>
-    <option>Coo-Ee Parks</option>
-    <option>Debra Phelps</option>
-    <option>Gerry Hamilton</option>
-    <option>James Fawcett</option>
-    <option>Jonathan D Adams</option>
-    <option>Ken Armstrong</option>
-    <option>Kevin Ingram</option>
-    <option>Lee Steele</option>
-    <option>Mac Ferguson</option>
-    <option>Patrick Schweighardt</option>
-    <option>Randall Rowady</option>
-    <option>Robert Walter</option>
-    <option>Steve Gahafer</option>
-    <option>Thad W Scott</option>
-    <option>Thomas Brooks</option>
-    <option>William T Bourne</option>
-    <option>William Woodward</option>
-
-  </select>
-</div>
-<div class="form-group">
-  <label>Date & Time</label>
-  <input type="text" id="timestamp" class="form-control"></input>
-</div>
-<div id="map-canvas"></div>
-
-<div class="form-group">
-  <label>Photo</label>
-  <input type="file"></input>
-</div>
-
-<div class="form-group">
-  <label>Name on Sign</label>
-  <input type="text" class="form-control"></input>
-</div>
-<div class="form-group">
-  <label>Phone on Sign</label>
-  <input type="text" class="form-control"></input>
-</div>
-<div class="form-group">
-  <label>Website on Sign</label>
-  <input type="text" class="form-control"></input>
-</div>
-<div class="form-group">
-  <label>Email on Sign</label>
-  <input type="text" class="form-control"></input>
-</div>
-<button class="btn btn-lg btn-success btn-responsive" onclick="alert('Report Received!')">Submit</button>
-</form>
+  </div>
+  <div class="col-md-6 col-xs-11">  
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Bruce Willis">Bruce Willis</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Charles Reed">Charles Reed</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Coo-Ee Parks">Coo-Ee Parks</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Debra Phelps">Debra Phelps</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Gerry Hamilton">Gerry Hamilton</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=James Fawcett">James Fawcett</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Jonathan D Adams">Jonathan D Adams</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Ken Armstrong">Ken Armstrong</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Kevin Ingram">Kevin Ingram</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Lee Steele">Lee Steele</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Mac Ferguson">Mac Ferguson</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Patrick Schweighardt">Patrick Schweighardt</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Randall Rowady">Randall Rowady</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Robert Walter">Robert Walter</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Steve Gahafer">Steve Gahafer</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Thad W Scott">Thad W Scott</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=Thomas Brooks">Thomas Brooks</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=William T Bourne">William T Bourne</a>
+    <a class="btn btn-lg btn-primary btn-responsive" href="report.html?inspector=William Woodward">William Woodward</a>
+  </div>
   </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -91,7 +60,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
      <script src="js/main.js"></script>  
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXqhUx3ZQwPBtAVsXg6tz9N_2yvrRydcQ&libraries=places&callback=initMap"></script>  
   </body>
 
 </html>
