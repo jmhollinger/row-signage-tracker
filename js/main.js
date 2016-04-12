@@ -67,6 +67,7 @@ function imageResize() {
             ctx.drawImage(img, 0, 0, width, height);
   
             dataUrl = canvas.toDataURL("image/jpeg");
+            $('#preview').attr("src", dataUrl)
             $("#photoData").val(dataUrl)      
         }
         // Load files into file reader
