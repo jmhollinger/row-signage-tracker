@@ -45,8 +45,8 @@ function imageResize() {
             ctx.drawImage(img, 0, 0);
     
             // Set Width and Height
-            var MAX_WIDTH = 800;
-            var MAX_HEIGHT = 600;
+            var MAX_WIDTH = 100;
+            var MAX_HEIGHT = 75;
             var width = img.width;
             var height = img.height;
     
