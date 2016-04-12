@@ -32,11 +32,11 @@
   <div class="col-md-6 col-xs-11">  
   <div class="form-group">
   <label>Inspector</label>
-  <input id="inspector" name="inspector" type="text" class="form-control"/>
+  <input id="inspector" name="inspector" type="text" class="form-control" readonly/>
 </div>
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' name="datetime" id="datetime" class="form-control" />
+                    <input type='text' name="datetime" id="datetime" class="form-control" required/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -46,30 +46,28 @@
 
 <div class="form-group">
   <label>Photo</label>
-  <input name="picture" id="picture" type="file" onchange="previewFile()"></input>
-  <img src="" height="600"class="hidden" alt="Image" id="preview">
+  <input name="picture" id="picture" type="file" required></input>
 </div>
-
 <div class="form-group">
   <label>Name on Sign</label>
-  <input type="text" id="name" name="name" class="form-control"></input>
+  <input type="text" id="name" name="name" placeholder="eg. Jonathan's Diner" class="form-control"></input>
 </div>
 <div class="form-group">
   <label>Phone on Sign</label>
-  <input type="text" name="phone" id="phone" class="form-control"></input>
+  <input type="text" name="phone" id="phone" placeholder="eg. 859-258-3430" class="form-control"></input>
 </div>
 <div class="form-group">
   <label>Website on Sign</label>
-  <input type="text" name="URL" id="URL" class="form-control"></input>
+  <input type="text" name="URL" id="URL" placeholder="eg. www.jonathansdiner.com" class="form-control"></input>
 </div>
 <div class="form-group">
   <label>Email on Sign</label>
-  <input type="text" name="email" id="email" class="form-control"></input>
+  <input type="text" name="email" id="email" placeholder="eg. info@jonathansdiner.com" class="form-control"></input>
 </div>
 <input type="text" name="lat" id="lat" class="hidden"></input>
 <input type="text" name="lng" id="lng" class="hidden"></input>
 <input type="text" name="photoData" id="photoData" class="hidden"></input>
-<button class="btn btn-lg btn-success btn-responsive" onclick="save()" >Submit</button>
+<button id="submit" class="btn btn-lg btn-success btn-responsive">Submit</button>
 </div>
   </div>
     <!-- Bootstrap core JavaScript

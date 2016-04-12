@@ -1,8 +1,17 @@
+//Listeners
+$( "#picture" ).change(function(){
+  imageResize()
+});
+
+$( "#submit" ).click(function(){
+  save()
+});
+
 //Firebase
 var db = new Firebase("https://lex-row-signs.firebaseio.com/signReports")
 
 function save (){
- db.push({
+ var save = db.push({
   "submissionTimestamp" : moment().format(), 
   "datetime" : $("#datetime").val(),
   "inspector" : $("#inspector").val(),
@@ -12,25 +21,57 @@ function save (){
   "email" : $("#email").val(),
   "coordinates" : {"lat": $("#lat").val() ,"lng": $("#lng").val()},
   "photo" : $("#photoData").val()
+}, function(){
+window.location.pathname = "/row-signage-tracker/";
 })
-
-//window.location.pathname = "/row-signage-tracker/";
-
 }
 
-function previewFile() {
-  var preview = document.getElementById('preview')
-  var file    = document.getElementById('picture').files[0]
-  var reader  = new FileReader();
-
-  reader.addEventListener("load", function () {
-    $("#photoData").val(reader.result)
-  }, false);
-
-  if (file) {
-    reader.readAsDataURL(file);
-  }
-}
+//Image Resizer
+function imageResize() {
+        var file = document.getElementById('picture').files[0];
+        var dataUrl = "";
+        // Create an image
+        var img = document.createElement("img");
+        // Create a file reader
+        var reader = new FileReader();
+        // Set the image once loaded into file reader
+        reader.onload = function(e)
+        {
+            img.src = e.target.result;
+    
+            var canvas = document.createElement("canvas");
+            //var canvas = $("<canvas>", {"id":"testing"})[0];
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0);
+    
+            // Set Width and Height
+            var MAX_WIDTH = 800;
+            var MAX_HEIGHT = 600;
+            var width = img.width;
+            var height = img.height;
+    
+            if (width > height) {
+              if (width > MAX_WIDTH) {
+                height *= MAX_WIDTH / width;
+                width = MAX_WIDTH;
+              }
+            } else {
+              if (height > MAX_HEIGHT) {
+                width *= MAX_HEIGHT / height;
+                height = MAX_HEIGHT;
+              }
+            }
+            canvas.width = width;
+            canvas.height = height;
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, width, height);
+  
+            dataUrl = canvas.toDataURL("image/jpeg");
+            $("#photoData").val(dataUrl)      
+        }
+        // Load files into file reader
+        reader.readAsDataURL(file);
+      }
 
 //Date & Time Picker
 $(function () {
@@ -54,11 +95,7 @@ $("#inspector").val(decodeURIComponent(getUrlParameter('inspector')))
 
 //Map
 function initMap(){
-
-  //Go ahead and create an empty marker set for address searching.
-  var markers = [];
   
-  //Set your basic options.
   var mapOptions = {
     overviewMapControl:true,
     rotateControl:true,
@@ -69,13 +106,10 @@ function initMap(){
     zoomControlOptions: {style: google.maps.ZoomControlStyle.DEFAULT}
     };
 
-  //Fill up the map-canvas.
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
 
   var geocoder = new google.maps.Geocoder;
 
-  //Set default map bounds, expressed as southwest and northeast points.
   var defaultBounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(37.921971, -84.663139),
       new google.maps.LatLng(38.155595, -84.334923)
