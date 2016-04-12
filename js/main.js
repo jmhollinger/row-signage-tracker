@@ -28,29 +28,26 @@ window.location.pathname = "/row-signage-tracker/";
 
 //Image Resizer
 function imageResize() {
-        var file = document.getElementById('picture').files[0];
-        var dataUrl = "";
-        // Create an image
-        var img = document.createElement("img");
-        // Create a file reader
-        var reader = new FileReader();
-        // Set the image once loaded into file reader
-        reader.onload = function(e)
-        {
-            img.src = e.target.result;
-    
+var dataurl = null;
+var file = document.getElementById('picture').files[0];
+var img = document.createElement("img");
+var reader = new FileReader();
+
+reader.onload = function(e)
+    {
+  img.src = e.target.result;
+
+  img.onload = function () {
             var canvas = document.createElement("canvas");
-            //var canvas = $("<canvas>", {"id":"testing"})[0];
             var ctx = canvas.getContext("2d");
             ctx.drawImage(img, 0, 0);
-    
-            // Set Width and Height
-            var MAX_WIDTH = 100;
-            var MAX_HEIGHT = 75;
+
+            var MAX_WIDTH = 800;
+            var MAX_HEIGHT = 600;
             var width = img.width;
             var height = img.height;
-    
-            if (width > height) {
+
+             if (width > height) {
               if (width > MAX_WIDTH) {
                 height *= MAX_WIDTH / width;
                 width = MAX_WIDTH;
@@ -65,14 +62,15 @@ function imageResize() {
             canvas.height = height;
             var ctx = canvas.getContext("2d");
             ctx.drawImage(img, 0, 0, width, height);
-  
-            dataUrl = canvas.toDataURL("image/jpeg");
-            $('#preview').attr("src", dataUrl)
-            $("#photoData").val(dataUrl)      
-        }
-        // Load files into file reader
-        reader.readAsDataURL(file);
-      }
+
+            dataurl = canvas.toDataURL("image/jpeg");
+            document.getElementById("preview").src = dataurl;
+            document.getElementById("photoData").value = dataurl;
+}
+}
+reader.readAsDataURL(file);
+
+};
 
 //Date & Time Picker
 $(function () {
