@@ -26,6 +26,23 @@ window.location.pathname = "/row-signage-tracker/";
 })
 }
 
+db.on("value", function(snapshot) { 
+ $.each(snapshot.val(), function( index, value ) {
+  $("#submissionList").append(
+    "<tr>" +
+    "<td>" + moment(value.submissionTimestamp).format('M/DD/YYYY') + "</td>" +
+    "<td>" + value.inspector + "</td>" +
+    "<td>" + value.datetime + "</td>" +
+    "<td>" + value.name + "</td>" +
+    "<td>" + value.phone + "</td>" +
+    "<td>" + value.email + "</td>" +
+    "<td>" + value.website + "</td>" +
+    "</tr>")
+});
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
+
 //Image Resizer
 function imageResize() {
 var dataurl = null;
@@ -64,7 +81,6 @@ reader.onload = function(e)
             ctx.drawImage(img, 0, 0, width, height);
 
             dataurl = canvas.toDataURL("image/jpeg");
-            document.getElementById("preview").src = dataurl;
             document.getElementById("photoData").value = dataurl;
 }
 }
