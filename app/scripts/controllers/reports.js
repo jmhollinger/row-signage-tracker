@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name rowSignsApp.controller:AboutCtrl
+ * @name rowSignsApp.controller:ReportsCtrl
  * @description
- * # AboutCtrl
+ * # ReportsCtrl
  * Controller of the rowSignsApp
  */
 angular.module('rowSignsApp')
-  .controller('AboutCtrl', function () {
+  .controller('ReportsCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
