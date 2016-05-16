@@ -6,7 +6,7 @@
  * @description
  * # rowSignsApp
  *
- * Main module of the application.
+ * Main module of the application
  */
 angular
   .module('rowSignsApp', [
@@ -15,42 +15,43 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.router',
+    'ui.bootstrap'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($stateProvider, $urlRouterProvider) {
 
-    $routeProvider.
-      .when('/', {
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+      .state('main', {
+        url: '/',
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        controller: 'MainCtrl'
       })
-      .when('/newSign', {
+      .state('newSign', {
+        url: '/sign/new/',
         templateUrl: 'views/newsign.html',
-        controller: 'NewsignCtrl',
-        controllerAs: 'newSign'
+        controller: 'NewsignCtrl'
       })
-      .when('/editSign', {
+      .state('editSign', {
+        url: '/sign/edit/{projectId:int}',
         templateUrl: 'views/editsign.html',
-        controller: 'EditsignCtrl',
-        controllerAs: 'editSign'
+        controller: 'EditsignCtrl'
       })
-      .when('/signList', {
+      .state('signList', {
+        url: '/signs',
         templateUrl: 'views/signlist.html',
-        controller: 'SignlistCtrl',
-        controllerAs: 'signList'
+        controller: 'SignlistCtrl'
       })
-      .when('/signDetail', {
+      .state('signDetail', {
+        url: '/sign/{projectId:int}',
         templateUrl: 'views/signdetail.html',
-        controller: 'SigndetailCtrl',
-        controllerAs: 'signDetail'
+        controller: 'SigndetailCtrl'
       })
-      .when('/reports', {
+      .state('reports', {
+        url: '/reports',
         templateUrl: 'views/reports.html',
-        controller: 'ReportsCtrl',
-        controllerAs: 'reports'
-      })
-      .otherwise({
-        redirectTo: '/'
+        controller: 'ReportsCtrl'
       });
   });

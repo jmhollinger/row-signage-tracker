@@ -1,1 +1,28 @@
-<p>This is the signList view.</p>
+<h1>Inspections</h1>
+<div class="row">
+<form>
+  <div class="form-group col-sm-10">
+    <input class="form-control" ng-model="search" placeholder="Search" type="text"/>
+  </div>
+  <div class="form-group col-sm-2">
+    <button class="btn btn-success btn-fill">Search</button>
+  </div>
+</form>
+</div>
+
+  <div class="col-md-12 row-header">
+    <div class="col-md-2 data">Address</div>
+    <div class="col-md-2 data">Date</div>
+    <div class="col-md-2 data">Name</div>
+    <div class="col-md-2 data">Phones</div>
+    <div class="col-md-2 data">Email</div>
+    <div class="col-md-2 data">Website</div>
+  </div>
+  <div ng-repeat="x in signInspections" class="col-md-12 row-data">
+    <div class="col-md-2 data bold-title">{{x.number}} {{x.street}}</div>
+    <div class="col-md-2 data">{{x.timestamp}}</div>
+    <div class="col-md-2 data">{{x.name}}</div>
+    <div class="col-md-2 data">{{x.phone}}</div>
+    <div class="col-md-2 data">{{x.email}}</div>
+    <div class="col-md-2 data">{{x.website}}</div>
+  </div>

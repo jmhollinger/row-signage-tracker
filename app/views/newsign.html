@@ -1,1 +1,73 @@
-<p>This is the newSign view.</p>
+<h1>Sign Inspection</h1>
+<form>
+
+<div class="form-group">
+<label>Date</label>
+        <input type='date' name="date" id="date" ng-model="inspectionData.date" class="form-control" required/>
+</div>
+
+<div class="form-group">
+<label>Time</label>
+        <input type='time' name="time" id="time" ng-model="inspectionData.time" class="form-control" required/>
+</div>
+
+<div class="form-group">
+    <label>Sign Location</label>
+    <div id="map-canvas"></div>
+</div>
+<div class="row">
+<div class="form-group col-md-4">
+  <input type="text" ng-hide="true" ng-model="inspectionData.lat"/ required>
+  <label>Number</label>
+  <input type="text" id="address" name="address" class="form-control" ng-model="inspectionData.number" readonly></input>
+</div>
+<div class="form-group col-md-4">
+  <label>Street</label>
+  <input type="text" id="address" name="address" class="form-control" ng-model="inspectionData.street" readonly></input>
+</div>
+<div class="form-group col-md-4">
+  <label>Council District</label>
+  <input type="text" id="address" name="address" class="form-control" ng-model="inspectionData.councilDistrict" readonly></input>
+</div>
+</div>
+
+<div class="form-group">
+    <label>Photos</label>
+    <br/>
+
+    <label for="picture" class="btn-image">
+      <i class="fa fa-camera" aria-hidden="true"></i> Upload Photo
+    </label>
+    <input name="picture" id="picture" type="file" accept="image/*" required></input>
+</div>
+<div ng-repeat="x in inspectionData.images">
+  <img src="{{x}}" class="preview"><button class="btn btn-danger" ng-click="delete(x)">Delete</button>
+</div>
+<input class="" name="photoValidation" ng-model="inspectionData.images[0]" ng-hide="true"/>
+<div class="form-group">
+    <label>Name on Sign</label>
+    <input type="text" id="name" name="name" placeholder="eg. Jonathan's Diner" class="form-control" ng-model="inspectionData.name"></input>
+</div>
+
+<div class="form-group">
+    <label>Phone on Sign</label>
+    <input type="text" name="phone" id="phone" placeholder="eg. 859-258-3430" class="form-control" ng-model="inspectionData.phone"></input>
+</div>
+
+<div class="form-group">
+    <label>Website on Sign</label>
+    <input type="text" name="URL" id="URL" placeholder="eg. www.jonathansdiner.com" class="form-control" ng-model="inspectionData.website"></input>
+</div>
+
+<div class="form-group">
+    <label>Email on Sign</label>
+    <input type="text" name="email" id="email" placeholder="eg. info@jonathansdiner.com" class="form-control"ng-model="inspectionData.email"></input>
+</div>
+
+<div class="form-group">
+    <label>Notes</label>
+    <textarea name="notes" id="notes" placeholder="" class="form-control"ng-model="inspectionData.notes"></textarea>
+</div>
+
+<button id="submit" class="btn btn-lg btn-success btn-fill" ng-click="save()">Submit</button>
+</form>

@@ -9,6 +9,7 @@
  */
 angular.module('rowSignsApp')
   .controller('ReportsCtrl', function () {
+    console.log('Reports');
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
