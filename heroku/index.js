@@ -145,7 +145,7 @@ app.post('/api/v1/sign-inspection/', function (req, res) {
   //WITH (INSERT INTO sign_inspections (inspector, timestamp, lat, lng, street, sclink, name, phone, website, email, notes)
   //VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
   //returning inspection_id) AS A
-  //with   
+  //with
   res.json({
   })
 
@@ -219,21 +219,6 @@ app.get('/api/v1/council-district/:lat/:lng', function (req, res) {
 });
 
 app.get('/api/v1/nearest-street/:lat/:lng', function (req, res) {
-  var valid = validation.validate(
-        [{
-          "input" : req.params.lat,
-          "label" : "lat",
-          "validators": [validation.isNotNull, validation.isNumeric]
-        },
-        {
-          "input" : req.params.lng,
-          "label" : "lng",
-          "validators":  [validation.isNotNull, validation.isNumeric]
-        }
-      ]
-    )
-
-  if (valid === true){
 
     fs.readFile('data/streetPoints.geojson', handleFile)
 
@@ -266,9 +251,6 @@ app.get('/api/v1/nearest-street/:lat/:lng', function (req, res) {
           })
         }
     }
-}
-  else
-  res.status(400).json(valid)
 });
 
 
